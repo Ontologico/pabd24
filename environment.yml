@@ -1,0 +1,13 @@
+name: pabd24
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+    - numpy
+    - flask
+    - flask-cors
+    - cianparser
+    - scikit-learn
+    - pandas
+    - boto3
+    - python-dotenv
