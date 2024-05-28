@@ -3,10 +3,10 @@
 *.xlsx
 *.json
 *.joblib
-*.jpg
-*.png
-*.JPG
-*.PNG
+# *.jpg
+# *.png
+# *.JPG
+# *.PNG
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
