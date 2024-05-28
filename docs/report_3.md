@@ -44,13 +44,13 @@
 
 ### Результат и обсуждение
 #### dev
-##### [predict_io_bounded](log/test_parallel_predict_io_bounded_dev.txt)
+##### [predict_io_bounded](../log/test_parallel_predict_io_bounded_dev.txt)
 Все запросы обрабатываются одновременно, и время ожидания относительно стабильно, варьируется от 1.14 до 1.18 секунд.
 
-##### [predict_cpu_bounded](log/test_parallel_predict_cpu_bounded_dev.txt)
+##### [predict_cpu_bounded](../log/test_parallel_predict_cpu_bounded_dev.txt)
 Все запросы обрабатываются одновременно, но время ожидания варьируется от 2.63 до 5.88 секунд. На продакшене это неприемлемо, потому что разница во времени обработки может привести к задержкам и непредсказуемому поведению системы под нагрузкой.
 
-##### [predict_cpu_multithread](log/test_parallel_predict_cpu_multithread_dev.txt)
+##### [predict_cpu_multithread](../log/test_parallel_predict_cpu_multithread_dev.txt)
 Все запросы обрабатываются одновременно, но время ожидания варьируется от 1.58 до 5.57 секунд. На продакшене это неприемлемо, потому что высокая вариативность времени отклика может негативно сказаться на пользовательском опыте и стабильности системы.
 
 #### prod
