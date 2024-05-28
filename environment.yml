@@ -12,3 +12,4 @@ dependencies:
     - boto3
     - python-dotenv
     - matplotlib
+    - flask_httpauth
