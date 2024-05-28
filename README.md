@@ -46,10 +46,6 @@ todo Описание модели и входных параметров для
 
 Токен для авторизации: ReeD
 
-![Home Page](img/homepage.png)
-![Predict Page](img/predictpage.png)
-![Result](img/result.png)
-
 ### 7. Использование сервиса через веб интерфейс 
 
 Для использования сервиса используйте файл `web/index.html`.  
