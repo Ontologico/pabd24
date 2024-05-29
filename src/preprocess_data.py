@@ -6,20 +6,20 @@ import os
 import pandas as pd
 
 logger = logging.getLogger(__name__)
-os.makedirs('../data/proc', exist_ok=True)
-os.makedirs('../log', exist_ok=True)
+os.makedirs('data/proc', exist_ok=True)
+os.makedirs('log', exist_ok=True)
 logging.basicConfig(
-    filename='../log/preprocess_data.log',
+    filename='log/preprocess_data.log',
     encoding='utf-8',
     level=logging.DEBUG,
     format='%(asctime)s %(message)s')
 
-IN_FILES = ['../data/raw/1_2024-05-16_19-11.csv',
-            '../data/raw/2_2024-05-16_19-11.csv',
-            '../data/raw/3_2024-05-16_19-11.csv']
+IN_FILES = ['data/raw/1_2024-05-16_19-11.csv',
+            'data/raw/2_2024-05-16_19-11.csv',
+            'data/raw/3_2024-05-16_19-11.csv']
 
-OUT_TRAIN = '../data/proc/train.csv'
-OUT_VAL = '../data/proc/val.csv'
+OUT_TRAIN = 'data/proc/train.csv'
+OUT_VAL = 'data/proc/val.csv'
 
 TRAIN_SIZE = 0.9
 

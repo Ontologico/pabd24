@@ -10,12 +10,12 @@ from joblib import load
 from utils import (predict_cpu_bounded, predict_cpu_multithread,
                    predict_io_bounded)
 
-MODEL_SAVE_PATH = '../models/linear_regression_v01.joblib'
+MODEL_SAVE_PATH = 'models/linear_regression_v01.joblib'
 
 app = Flask(__name__)
 CORS(app)
 
-config = dotenv_values("../.env")
+config = dotenv_values(".env")
 auth = HTTPTokenAuth(scheme='Bearer')
 
 tokens = {
@@ -40,7 +40,7 @@ def predict(in_data: dict) -> int:
     """
     area = float(in_data['area'])
     price = model.predict([[area]])
-    return int(price)
+    return int(price.squeeze())
 
 
 
