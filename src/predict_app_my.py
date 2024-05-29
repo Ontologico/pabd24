@@ -10,14 +10,14 @@ from joblib import load
 from utils import (predict_cpu_bounded, predict_cpu_multithread,
                    predict_io_bounded)
 
-MODEL_SAVE_PATH = '../models/linear_regression_v01.joblib'
+MODEL_SAVE_PATH = 'models/linear_regression_v01.joblib'
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'  # Необходимо для работы сессий
 CORS(app)
 
 # Load environment variables
-load_dotenv("../.env")
+load_dotenv(".env")
 app_token = os.getenv('APP_TOKEN')
 if not app_token:
     raise ValueError("APP_TOKEN not found in .env file")

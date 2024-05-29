@@ -4,8 +4,8 @@ from multiprocessing import Pool
 import requests
 from dotenv import dotenv_values
 
-config = dotenv_values("../.env")
-endpoint = 'http://51.250.110.49:2011/predict'
+config = dotenv_values(".env")
+ENDPOINT = 'http://87.242.101.208:5000/predict'
 HEADERS = {"Authorization": f"Bearer {config['APP_TOKEN']}"}
 
 
@@ -13,7 +13,7 @@ def do_request(area: int) -> str:
     data = {'area': area}
     t0 = time.time()
     resp = requests.post(
-        endpoint,
+        ENDPOINT,
         json=data,
         headers=HEADERS
     ).text
