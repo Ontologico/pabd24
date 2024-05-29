@@ -13,3 +13,4 @@ dependencies:
     - python-dotenv
     - matplotlib
     - flask_httpauth
+    - gunicorn
