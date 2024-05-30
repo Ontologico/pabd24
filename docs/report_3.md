@@ -1,7 +1,7 @@
 # Отчет по семинару № 3
 Исследование поведения серверов flask и gunicorn под разными видами нагруки.  
 
-### Введение
+## Введение
 Для тяжелых моделей предиктивной аналитики возможно два варианта деплоя. 
 Первый вариант - запускать модели на своем сервере. 
 Этот вариант имеет очевидный недостаток. 
@@ -18,7 +18,7 @@
 В этом случае вычислительная нагрузка снимается с вашего сервера. 
 Но за каждый запрос к стороннему сервису нужно платить, как деньги, так и временем на обработку запросов. 
 
-### Метод исследования
+## Метод исследования
 В файле `src/utils.py` определены три функции, которые эмулируют три варианта решения задачи `predict` :
 - `predict_io_bounded(area)` - соответсвует второму варианту, запрос к стороннему сервису заменяет `time.sleep(1)`. 
 Это соответствует задержке в 1 секунду, которая нужна для обмена информацией со сторонним сервисом. 
@@ -42,36 +42,36 @@
 `python test/test_parallel.py > log/test_np_flask.txt` 
 Обратите внимание, файлы должны иметь расширение txt, а значит не игнорятся гитом и должны быть запушены в мастере.  
 
-### Результат и обсуждение
-#### dev
-##### Логи при падении
+## Результат и обсуждение
+## dev
+### Логи при падении
 requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')) \
 Сам flask ничего не возвращает, просто отключается
 
-##### [predict_io_bounded](../log/io_bounded_dev.txt)
-- Комментарий:
+### [predict_io_bounded](../log/io_bounded_dev.txt)
+- Комментарий: В сумме 10 запросов выполняются за 10.3 сек.
 
-##### [predict_cpu_bounded](../log/cpu_bounded_dev.txt)
+### [predict_cpu_bounded](../log/cpu_bounded_dev.txt)
 - Критический n = 300 000 000
-- Комментарий: 
+- Комментарий: В сумме 10 запросов выполняются за 25.3 сек.
 
-##### [predict_cpu_multithread](../log/cpu_multithread_dev.txt)
+### [predict_cpu_multithread](../log/cpu_multithread_dev.txt)
 - Критический n = 300 000 000
-- Комментарий: 
+- Комментарий: В сумме 10 запросов выполняются за 1.2 сек.
 
-#### prod
-##### Логи при падении
+## prod
+### Логи при падении
 requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')) \
 [2024-05-30 17:07:44 +0000] [8279] [INFO] Booting worker with pid: 8279 \
 [2024-05-30 17:07:46 +0000] [8009] [ERROR] Worker (pid:8279) was sent SIGKILL! Perhaps out of memory?
 
-##### [predict_io_bounded](../log/io_bounded_prod_w1.txt)
-- Комментарий: 
+### [predict_io_bounded](../log/io_bounded_prod_w1.txt)
+- Комментарий: В сумме 10 запросов выполняются за 55.3 сек.
 
-##### [predict_cpu_bounded](../log/cpu_bounded_prod_w1.txt)
+### [predict_cpu_bounded](../log/cpu_bounded_prod_w1.txt)
 - Критический n = 300 000 000
-- Комментарий: 
+- Комментарий: В сумме 10 запросов выполняются за 16.6 сек.
 
-##### [predict_cpu_multithread](../log/cpu_multithread_prod_w1.txt)
+### [predict_cpu_multithread](../log/cpu_multithread_prod_w1.txt)
 - Критический n = 300 000 000
-- Комментарий: 
+- Комментарий: В сумме 10 запросов выполняются за 1.2 сек.
