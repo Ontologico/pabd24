@@ -1,31 +1,31 @@
-Waited 2.70 sec {
+Waited 2.80 sec {
   "price": 24999995
 }
- Waited 2.63 sec {
+ Waited 1.53 sec {
   "price": 49999990
 }
- Waited 4.84 sec {
+ Waited 1.78 sec {
   "price": 74999985
 }
- Waited 4.17 sec {
+ Waited 3.14 sec {
   "price": 99999980
 }
- Waited 5.18 sec {
+ Waited 2.11 sec {
   "price": 124999975
 }
- Waited 4.42 sec {
+ Waited 2.62 sec {
   "price": 149999970
 }
- Waited 5.87 sec {
+ Waited 3.13 sec {
   "price": 174999965
 }
- Waited 5.88 sec {
+ Waited 3.03 sec {
   "price": 199999960
 }
- Waited 5.40 sec {
+ Waited 2.50 sec {
   "price": 224999955
 }
- Waited 5.87 sec {
+ Waited 2.65 sec {
   "price": 249999950
 }
 
