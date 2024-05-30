@@ -1,12 +1,14 @@
 """House price prediction service"""
 import os
+import sys
 
 from dotenv import dotenv_values
-from flask import Flask, request, send_from_directory, url_for
+from flask import Flask, request, send_from_directory
 from flask_cors import CORS
 from flask_httpauth import HTTPTokenAuth
 from joblib import load
 
+sys.path.append('/home/reed/pabd24/src')
 from utils import (predict_cpu_bounded, predict_cpu_multithread,
                    predict_io_bounded)
 
@@ -70,7 +72,7 @@ def home():
 def predict_web_serve():
     """Dummy service"""
     # in_data = request.get_json()['area']
-    # price = predict_cpu_bounded(in_data)
+    # price = predict_cpu_multithread(in_data)
     in_data = request.get_json()
     price = predict(in_data)
     return {'price': price}

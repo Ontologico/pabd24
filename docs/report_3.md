@@ -44,14 +44,34 @@
 
 ### Результат и обсуждение
 #### dev
-##### [predict_io_bounded](../log/test_parallel_predict_io_bounded_dev.txt)
-Все запросы обрабатываются одновременно, и время ожидания относительно стабильно, варьируется от 1.14 до 1.18 секунд.
+##### Логи при падении
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')) \
+Сам flask ничего не возвращает, просто отключается
 
-##### [predict_cpu_bounded](../log/test_parallel_predict_cpu_bounded_dev.txt)
-Все запросы обрабатываются одновременно, но время ожидания варьируется от 2.63 до 5.88 секунд. На продакшене это неприемлемо, потому что разница во времени обработки может привести к задержкам и непредсказуемому поведению системы под нагрузкой.
+##### [predict_io_bounded](../log/io_bounded_dev.txt)
+- Комментарий:
 
-##### [predict_cpu_multithread](../log/test_parallel_predict_cpu_multithread_dev.txt)
-Все запросы обрабатываются одновременно, но время ожидания варьируется от 1.58 до 5.57 секунд. На продакшене это неприемлемо, потому что высокая вариативность времени отклика может негативно сказаться на пользовательском опыте и стабильности системы.
+##### [predict_cpu_bounded](../log/cpu_bounded_dev.txt)
+- Критический n = 300 000 000
+- Комментарий: 
+
+##### [predict_cpu_multithread](../log/cpu_multithread_dev.txt)
+- Критический n = 300 000 000
+- Комментарий: 
 
 #### prod
-______
+##### Логи при падении
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')) \
+[2024-05-30 17:07:44 +0000] [8279] [INFO] Booting worker with pid: 8279 \
+[2024-05-30 17:07:46 +0000] [8009] [ERROR] Worker (pid:8279) was sent SIGKILL! Perhaps out of memory?
+
+##### [predict_io_bounded](../log/io_bounded_prod_w1.txt)
+- Комментарий: 
+
+##### [predict_cpu_bounded](../log/cpu_bounded_prod_w1.txt)
+- Критический n = 300 000 000
+- Комментарий: 
+
+##### [predict_cpu_multithread](../log/cpu_multithread_prod_w1.txt)
+- Критический n = 300 000 000
+- Комментарий: 

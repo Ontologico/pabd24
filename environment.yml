@@ -14,3 +14,4 @@ dependencies:
     - matplotlib
     - flask_httpauth
     - gunicorn
+    - dvc[s3]
