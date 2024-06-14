@@ -1,6 +1,5 @@
 """House price prediction service"""
 import os
-import sys
 
 from dotenv import dotenv_values
 from flask import Flask, request, send_from_directory
@@ -9,9 +8,10 @@ from flask_httpauth import HTTPTokenAuth
 from joblib import load
 import pandas as pd
 
-sys.path.append('/home/reed/pabd24/src')
-from utils import (predict_cpu_bounded, predict_cpu_multithread,
-                   predict_io_bounded)
+# import sys
+# sys.path.append('app/src')
+# from utils import (predict_cpu_bounded, predict_cpu_multithread,
+#                    predict_io_bounded)
 
 MODEL_SAVE_PATH = 'models/catboost_v01.joblib'
 
