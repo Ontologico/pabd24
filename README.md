@@ -4,7 +4,7 @@
 
 ## Installation 
 
-Для Linux установка conda будет выглядеть:
+### Для Linux установка conda будет выглядеть:
 ```sh
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
@@ -12,7 +12,7 @@ bash Miniconda3-latest-Linux-x86_64.sh
 rm -rf Miniconda3-latest-Linux-x86_64.sh
 ```
 
-Клонируйте репозиторий, создайте виртуальное окружение, активируйте и установите зависимости:  
+### Клонируйте репозиторий, создайте виртуальное окружение, активируйте и установите зависимости:  
 
 ```sh
 git clone https://github.com/Ontologico/pabd24.git
@@ -24,35 +24,28 @@ conda activate pabd24
 
 ## Usage
 
-### 1. Сбор данных о ценах на недвижимость 
-- [x] parse_cian.py
-    - [x] Добавил цикл для генерации трёх файлов сразу
-    - [x] Увеличил кол-во страниц и добавил срез по строкам для получения 50 значений
+### Запуск приложения flask/gunicorn
 
-### 2. Выгрузка данных в хранилище S3
-Для доступа к хранилищу скопируйте файл `.env` в корень проекта.  
+```sh
+# flask
+python src/predict_app.py
 
-- [x] Скачал .env файл
-- [x] upload_to_s3.py
-    - [x] Поменял YOUR_ID и CSV_PATH
+# gunicorn
+gunicorn -b 0.0.0.0 -w 1 src.predict_app:app --daemon --access-logfile ./gunicorn.log --capture-output
 
-### 3. Загрузка данных из S3 на локальную машину  
-- [x] download_from_s3.py
-    - [x] Поменял YOUR_ID и CSV_PATH
+# или
+source bash.sh
+```
 
-### 4. Предварительная обработка данных  
+### Демонстрация
+**gunicorn:** http://87.242.101.208:8000/ \
+**Токен для авторизации:** pabd24
 
-todo 
+### Docker
+```sh
+# flask
+docker run ontologico/pabd24:latest
 
-### 5. Обучение модели 
-
-todo Описание модели и входных параметров для предсказания здесь.  
-
-### 6. Запуск приложения flask
-**gunicorn:** http://87.242.101.208:8000/
-
-Токен для авторизации: pabd24
-
-### 7. Использование сервиса через веб интерфейс 
-
-Для использования сервиса используйте файл `web/index.html`.  
+# gunicorn
+docker run ontologico/pabd24:gunicorn
+```
