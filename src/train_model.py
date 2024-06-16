@@ -18,8 +18,8 @@ logging.basicConfig(
 
 os.makedirs('models', exist_ok=True)
 TRAIN_DATA = 'data/proc/train.csv'
-VAL_DATA = 'data/proc/val.csv'
-MODEL_SAVE_PATH = 'models/linear_regression_v01.joblib'
+VAL_DATA = 'data/proc/test.csv'
+MODEL_SAVE_PATH = 'models/lin_reg_v1.joblib'
 
 
 def main(args):
