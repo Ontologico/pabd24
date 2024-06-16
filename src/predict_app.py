@@ -9,7 +9,7 @@ from joblib import load
 import pandas as pd
 
 # import sys
-# sys.path.append('app/src')
+# sys.path.append('/home/reed/pabd24/src')
 # from utils import (predict_cpu_bounded, predict_cpu_multithread,
 #                    predict_io_bounded)
 

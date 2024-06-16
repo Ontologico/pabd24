@@ -22,6 +22,7 @@ TEST_DATA = 'data/proc/test.csv'
 MODEL_SAVE_PATH = 'models/catboost_v01.joblib'
 
 
+
 def main(args):
     col = ['author_type', 'floor', 'floors_count', 'rooms_count', 'total_meters', 'underground']
     
