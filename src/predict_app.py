@@ -1,6 +1,5 @@
 """House price prediction service"""
 import os
-import sys
 
 from dotenv import dotenv_values
 from flask import Flask, request, send_from_directory
@@ -8,9 +7,10 @@ from flask_cors import CORS
 from flask_httpauth import HTTPTokenAuth
 from joblib import load
 
-sys.path.append('/home/reed/pabd24/src')
-from utils import (predict_cpu_bounded, predict_cpu_multithread,
-                   predict_io_bounded)
+# import sys
+# sys.path.append('/home/reed/pabd24/src')
+# from utils import (predict_cpu_bounded, predict_cpu_multithread,
+#                    predict_io_bounded)
 
 MODEL_SAVE_PATH = 'models/lin_reg_v1.joblib'
 

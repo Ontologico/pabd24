@@ -20,7 +20,7 @@ IN_FILES = ['data/raw/1_2024-05-16_19-11.csv',
 OUT_TRAIN = 'data/proc/train.csv'
 OUT_TEST = 'data/proc/test.csv'
 
-TRAIN_SIZE = 0.9
+TRAIN_SIZE = 0.8
 PRICE_THRESHOLD = 30_000_000
 
 
@@ -37,7 +37,7 @@ def main(args):
     new_df = new_dataframe[new_dataframe['price'] < PRICE_THRESHOLD]
 
     border = int(args.split * len(new_df))
-    train_df, val_df = new_df[0:border], new_df[border:-1]
+    train_df, val_df = new_df[:border], new_df[border:]
     if args.split == 1:
         train_df.to_csv(OUT_TRAIN)
     elif args.split == 0:

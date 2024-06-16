@@ -5,8 +5,8 @@ import pandas as pd
 from joblib import load
 from sklearn.metrics import mean_absolute_error
 
-MODEL_SAVE_PATH = 'models/linear_regression_v01.joblib'
-TEST_DATA = 'data/proc/val.csv'
+MODEL_SAVE_PATH = 'models/lin_reg_v1.joblib'
+TEST_DATA = 'data/proc/test.csv'
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(

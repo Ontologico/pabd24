@@ -1,7 +1,8 @@
 schema: '2.0'
 stages:
   preprocess_train:
-    cmd: python src/preprocess_data.py -s 1
+    cmd: python src/preprocess_data.py -s 1 -i data/raw/1_2024-05-16_19-11.csv data/raw/2_2024-05-16_19-11.csv
+      data/raw/3_2024-05-16_19-11.csv
   preprocess_test:
     cmd: python src/preprocess_data.py -s 0 -i data/raw/1_2024-05-16_19-11.csv data/raw/2_2024-05-16_19-11.csv
       data/raw/3_2024-05-16_19-11.csv
