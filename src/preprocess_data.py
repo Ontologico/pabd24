@@ -32,12 +32,15 @@ def main(args):
         main_dataframe = pd.concat([main_dataframe, df], axis=0)
 
     main_dataframe['url_id'] = main_dataframe['url'].map(lambda x: x.split('/')[-2])
-    new_dataframe = main_dataframe[['url_id', 'total_meters', 'price']].set_index('url_id')
+    new_dataframe = main_dataframe.set_index('url_id')
+    new_dataframe.fillna('<nan>', inplace=True)
+
 
     new_df = new_dataframe[new_dataframe['price'] < PRICE_THRESHOLD]
 
     border = int(args.split * len(new_df))
     train_df, val_df = new_df[:border], new_df[border:]
+
     if args.split == 1:
         train_df.to_csv(OUT_TRAIN)
     elif args.split == 0:

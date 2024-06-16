@@ -6,13 +6,14 @@ from flask import Flask, request, send_from_directory
 from flask_cors import CORS
 from flask_httpauth import HTTPTokenAuth
 from joblib import load
+import pandas as pd
 
 # import sys
 # sys.path.append('/home/reed/pabd24/src')
 # from utils import (predict_cpu_bounded, predict_cpu_multithread,
 #                    predict_io_bounded)
 
-MODEL_SAVE_PATH = 'models/lin_reg_v1.joblib'
+MODEL_SAVE_PATH = 'models/catboost_v01.joblib'
 
 app = Flask(__name__)
 CORS(app)
@@ -40,8 +41,8 @@ def predict(in_data: dict) -> int:
     :return: House price, RUB.
     :rtype: int
     """
-    area = float(in_data['area'])
-    price = model.predict([[area]])
+    col = ['author_type', 'floor', 'floors_count', 'rooms_count', 'total_meters', 'underground']
+    price = model.predict(pd.DataFrame(in_data, index=[0])[col])
     return int(price.squeeze())
 
 
