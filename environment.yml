@@ -4,15 +4,14 @@ dependencies:
   - pip
   - pip:
     - numpy
+    - pandas
     - flask
     - flask-cors
-    - cianparser
-    - scikit-learn
-    - pandas
-    - boto3
-    - python-dotenv
-    - matplotlib
     - flask_httpauth
     - gunicorn
+    - cianparser
+    - boto3
+    - python-dotenv
     - dvc[s3]
     - catboost
+    - joblib
