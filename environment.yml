@@ -5,6 +5,7 @@ dependencies:
   - pip:
     - numpy
     - pandas
+    - scikit-learn
     - flask
     - flask-cors
     - flask_httpauth
